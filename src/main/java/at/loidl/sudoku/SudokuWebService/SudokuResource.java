@@ -12,7 +12,7 @@ import at.loidl.sudoku.bl.SudokuService;
 import at.loidl.sudoku.model.Sudoku;
 
 
-@Path("sudoku")
+@Path("/sudoku")
 public class SudokuResource {
 
 	@GET
@@ -22,7 +22,7 @@ public class SudokuResource {
 		int[][] values = Sudoku.convertToArray(parmKnownValues);
 		int[][] layout= (parmLayout==null || parmLayout.isEmpty()) ? null : Sudoku.convertToArray(parmLayout);
 		
-		if (values==null || layout==null) {
+		if (values==null) {
 			return Response.serverError().build();
 		}
 		Sudoku result = new SudokuService().solve(new Sudoku(values,layout));

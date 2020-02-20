@@ -4,3 +4,4 @@ target/*
 .project
 Procfile
 system.properties
+/target/
